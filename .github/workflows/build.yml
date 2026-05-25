@@ -12,10 +12,11 @@ jobs:
         python-version: '3.10'
     - name: Install dependencies
       run: |
+        python -m pip install --upgrade pip
         pip install pillow pyinstaller
     - name: Build EXE with PyInstaller
       run: |
-        pyinstaller --onefile --noconsole --add-data "anya_sprites.jpg;." pet.py
+        python -m PyInstaller --onefile --noconsole --add-data "anya_sprites.jpg;." pet.py
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
